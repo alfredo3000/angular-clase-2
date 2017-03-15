@@ -16,6 +16,7 @@
 			<th>Nro.Cuenta</th>
 			<th>Moneda</th>
 			<th>Monto</th>
+			<th>Acciones</th>
 		</tr>
 	</thead>
 
@@ -29,8 +30,9 @@
 			<td>{{cuenta.accountNumber | reverse}}</td>
 			<td>{{cuenta.currency}}</td>
 			<td>{{cuenta.amount | currency:cuenta.currency}}</td>
-
-
+			<td><a href="#" ng-click="onDelete(cuenta._id)">
+				<i class="fa fa-trash"></i>
+			</a></td>
 		</tr>
-	</tbody>
+	</tbody> 
 </table>

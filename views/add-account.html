@@ -1,28 +1,39 @@
-<form ng-submit="onSubmit()">
+<form name="formulario"  ng-submit="onSubmit()" novalidate>
+<div class="errores" ng-show="formulario.$submitted">
+  <p ng-show="formulario.nombre.$error.required">Ingresa el nombre</p>
+  <p ng-show="formulario.apellido.$error.required">Ingresa el apellido</p>
+  <p ng-show="formulario.correo.$error.mail">Ingresa el correo</p>
+  <p ng-show="formulario.nrocuenta.$error.required">Ingresa nro. cuenta</p>
+  <p ng-show="formulario.moneda.$error.required">Seleciona la moneda</p>
+  <p ng-show="formulario.monto.$error.required">Ingresa el monto</p>
+
+
+</div>
+
   <div class="form-group">
     <label for="nombre">Nombre</label>
-    <input type="text" class="form-control" id="nombre" placeholder="Nombre" ng-model="cuenta.firstname" required>
+    <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre" ng-model="cuenta.firstname" required>
   </div>
  
   <div class="form-group">
     <label for="apellido">Apellido</label>
-    <input type="text" class="form-control" id="apellido" placeholder="Apellido" ng-model="cuenta.lastname" required>
+    <input type="text"  name="apellido" class="form-control" id="apellido" placeholder="Apellido" ng-model="cuenta.lastname" required>
   </div>
 
 
    <div class="form-group">
     <label for="correo">Correo</label>
-    <input type="text" class="form-control" id="correo" placeholder="Correo" ng-model="cuenta.mail">
+    <input type="text"  name="correo" class="form-control" id="correo" placeholder="Correo" ng-model="cuenta.mail" required>
   </div>
 
    <div class="form-group">
     <label for="nrocta">Nro. Cta.</label>
-    <input type="text" class="form-control" id="nrocta"  ng-model="cuenta.accountNumber" required>
+    <input type="text"  name="nrocuenta" class="form-control" id="nrocta"  ng-model="cuenta.accountNumber" required>
   </div>
 
    <div class="form-group">
     <label for="moneda">Moneda</label>
-    <select id="moneda" class="form-group" ng-options="item.denominacion as item.moneda for item in tipo_moneda" ng-model="cuenta.currency" required>
+    <select id="moneda"  name="moneda" class="form-group" ng-options="item.denominacion as item.moneda for item in tipo_moneda" ng-model="cuenta.currency" required>
 
         <option value="">Seleccione...</option>
 
@@ -31,7 +42,7 @@
 
      <div class="form-group">
     <label for="monto">Monto</label>
-    <input type="text" class="form-control" id="monto"  ng-model="cuenta.amount" required>
+    <input type="text"  name="monto" class="form-control" id="monto"  ng-model="cuenta.amount" required>
   </div>
 
 
